@@ -5,8 +5,8 @@
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    auto dayOnePartOne = Day01::Part01(std::string("../Day01/puzzle-input.dat"));
-    dayOnePartOne.Solve();
+    auto answer = Day01::Part01::Solve(std::string("../Day01/puzzle-input.dat"));
+    std::cout << "Answer: " << answer << std::endl;
 
     return 0;
 }

@@ -6,47 +6,96 @@
 #include <fstream>
 #include <filesystem>
 #include <utility>
+#include <numeric>
 
 #include "../common.h"
 #include "Part01.h"
 
 
-std::string Day01::Part01::Solve() {
-    this->LoadPuzzleData();
-    this->ProcessInput();
+std::string Day01::Part01::Solve(const std::string& puzzleInputFilename) {
+    auto puzzleData = Day01::Part01::LoadPuzzleData(puzzleInputFilename);
+    auto puzzleDataOnlyNumbers = Day01::Part01::RemoveCharactersFromPuzzleInput(puzzleData);
+    auto calibrationValues = Day01::Part01::ResolveCalibrationValues(puzzleDataOnlyNumbers);
+    auto calibrationValuesSum = Day01::Part01::SumCalibrationValues(calibrationValues);
 
-
-    return {};
+    return std::to_string(calibrationValuesSum);
 }
 
-void Day01::Part01::LoadPuzzleData() {
-    std::cout << "Loading puzzle data from: " << this->puzzleInputFilename << "." << std::endl;
+std::vector<std::string> Day01::Part01::LoadPuzzleData(const std::string& puzzleInputFilename) {
+    std::cout << "Loading puzzle data from: " << puzzleInputFilename << "." << std::endl;
 
     std::string line;
+    std::vector<std::string> puzzleData;
 
-    std::ifstream puzzleDataFile(this->puzzleInputFilename);
-
-    std::filesystem::path cwd = std::filesystem::current_path();
-
+    std::ifstream puzzleDataFile(puzzleInputFilename);
     if(puzzleDataFile.fail()) {
-        std::cout << "Failed to open file: " << this->puzzleInputFilename << std::endl;
+        std::cout << "Failed to open file: " << puzzleInputFilename << std::endl;
     }
 
     if(puzzleDataFile.is_open()) {
         while(getline(puzzleDataFile, line)) {
-            this->puzzleData.push_back(line);
+            puzzleData.push_back(line);
         }
     }
+
+    return puzzleData;
 }
 
-Day01::Part01::Part01(std::string puzzleInputFilename) {
-    this->puzzleInputFilename = std::move(puzzleInputFilename);
+std::vector<std::string> Day01::Part01::RemoveCharactersFromPuzzleInput(const std::vector<std::string>& puzzleData) {
+    std::vector<std::string> processedData;
+    for(auto& line : puzzleData) {
+        auto onlyNumbers = RemoveCharactersFromLine(line);
+        processedData.push_back(onlyNumbers);
+    }
+    return processedData;
 }
 
-void Day01::Part01::ProcessInput() {
-
+std::string Day01::Part01::RemoveCharactersFromLine(const std::string& line) {
+    std::string onlyNumbers;
+    for(auto& character : line) {
+        if(isdigit(character)) {
+            onlyNumbers.push_back(character);
+        }
+    }
+    return onlyNumbers;
 }
 
-void Day01::Part01::RemoveCharacters() {
+std::vector<int> Day01::Part01::ResolveCalibrationValues(const std::vector<std::string> &puzzleDataOnlyNumbers) {
+    std::vector<int> calibrationValues;
+    for(auto& line : puzzleDataOnlyNumbers) {
+        if(line.size() == 1) {
+            auto value = std::stoi(ResolveSingleDigitCalibrationValue(line));
+            calibrationValues.push_back(value);
+        } else {
+            auto value = std::stoi(ResolveMultiDigitCalibrationValue(line));
+            calibrationValues.push_back(value);
+        }
+    }
+    return calibrationValues;
+}
 
+std::string Day01::Part01::ResolveSingleDigitCalibrationValue(const std::string &calibrationValue) {
+    std::string resolvedCalibrationValue;
+    resolvedCalibrationValue.insert(
+            CALIBRATION_VALUE_INSERT_INDEX,
+            CALIBRATION_VALUE_INSERT_LENGTH,
+            calibrationValue.at(CALIBRATION_VALUE_EXTRACT_INDEX));
+    return resolvedCalibrationValue;
+}
+
+std::string Day01::Part01::ResolveMultiDigitCalibrationValue(const std::string &calibrationValue) {
+    std::string resolvedCalibrationValue;
+
+    auto firstDigit = calibrationValue.at(CALIBRATION_VALUE_EXTRACT_INDEX);
+    auto secondDigit = calibrationValue.at(calibrationValue.length() - 1);
+
+    resolvedCalibrationValue.push_back(firstDigit);
+    resolvedCalibrationValue.push_back(secondDigit);
+
+    return resolvedCalibrationValue;
+}
+
+int Day01::Part01::SumCalibrationValues(std::vector<int> calibrationValues) {
+    auto sum = std::reduce(calibrationValues.begin(), calibrationValues.end());
+    return sum;
 }

@@ -10,17 +10,20 @@
 namespace Day01 {
     class Part01 {
     private:
-        std::string puzzleInputFilename;
-        std::vector<std::string> puzzleData;
+        static std::vector<std::string> LoadPuzzleData(const std::string& puzzleInputFilename);
+        static std::vector<std::string> RemoveCharactersFromPuzzleInput(const std::vector<std::string>& puzzleData);
+        static std::string RemoveCharactersFromLine(const std::string& line);
+        static std::vector<int> ResolveCalibrationValues(const std::vector<std::string>& puzzleDataOnlyNumbers);
+        static std::string ResolveSingleDigitCalibrationValue(const std::string& calibrationValue);
+        static std::string ResolveMultiDigitCalibrationValue(const std::string& calibrationValue);
 
-        void LoadPuzzleData();
-        void ProcessInput();
-        void RemoveCharacters();
-
+        static const int CALIBRATION_VALUE_INSERT_INDEX = 0;
+        static const int CALIBRATION_VALUE_EXTRACT_INDEX = 0;
+        static const int CALIBRATION_VALUE_INSERT_LENGTH = 2;
     public:
-        std::string Solve();
+        static std::string Solve(const std::string& puzzleInputFilename);
 
-        Part01(std::string puzzleInputFilename);
+        static int SumCalibrationValues(std::vector<int> calibrationValues);
     };
 }
 
