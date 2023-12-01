@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <filesystem>
 #include <utility>
 #include <numeric>
 
@@ -95,7 +94,7 @@ std::string Day01::Part01::ResolveMultiDigitCalibrationValue(const std::string &
     return resolvedCalibrationValue;
 }
 
-int Day01::Part01::SumCalibrationValues(std::vector<int> calibrationValues) {
+int Day01::Part01::SumCalibrationValues(const std::vector<int>& calibrationValues) {
     auto sum = std::reduce(calibrationValues.begin(), calibrationValues.end());
     return sum;
 }

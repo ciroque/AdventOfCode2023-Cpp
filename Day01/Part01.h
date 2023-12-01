@@ -23,7 +23,7 @@ namespace Day01 {
     public:
         static std::string Solve(const std::string& puzzleInputFilename);
 
-        static int SumCalibrationValues(std::vector<int> calibrationValues);
+        static int SumCalibrationValues(const std::vector<int>& calibrationValues);
     };
 }
 
