@@ -7,10 +7,11 @@
 
 #include <vector>
 
+#include "Day01.h"
+
 namespace Day01 {
-    class Part01 {
+    class Part01 : public Day01::Day01 {
     private:
-        static std::vector<std::string> LoadPuzzleData(const std::string& puzzleInputFilename);
         static std::vector<std::string> RemoveCharactersFromPuzzleInput(const std::vector<std::string>& puzzleData);
         static std::string RemoveCharactersFromLine(const std::string& line);
         static std::vector<int> ResolveCalibrationValues(const std::vector<std::string>& puzzleDataOnlyNumbers);
@@ -21,7 +22,7 @@ namespace Day01 {
         static const int CALIBRATION_VALUE_EXTRACT_INDEX = 0;
         static const int CALIBRATION_VALUE_INSERT_LENGTH = 2;
     public:
-        static std::string Solve(const std::string& puzzleInputFilename);
+        std::string Solve(const std::string& puzzleInputFilename) override;
 
         static int SumCalibrationValues(const std::vector<int>& calibrationValues);
     };

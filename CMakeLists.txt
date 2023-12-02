@@ -8,4 +8,10 @@ add_executable(advent_of_code_2023_c__ main.cpp
         "Day01/Part01.cpp"
         "Day01/Part01.h"
         "Day01/Part01.cpp"
+        Day01/Day01.cpp
+        Day01/Day01.h
+        Day01/Part02.cpp
+        Day01/Part02.h
+        Solution.cpp
+        Solution.h
 )
