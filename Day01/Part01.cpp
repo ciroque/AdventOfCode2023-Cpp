@@ -7,37 +7,16 @@
 #include <utility>
 #include <numeric>
 
-#include "../common.h"
 #include "Part01.h"
 
 
 std::string Day01::Part01::Solve(const std::string& puzzleInputFilename) {
-    auto puzzleData = Day01::Part01::LoadPuzzleData(puzzleInputFilename);
-    auto puzzleDataOnlyNumbers = Day01::Part01::RemoveCharactersFromPuzzleInput(puzzleData);
-    auto calibrationValues = Day01::Part01::ResolveCalibrationValues(puzzleDataOnlyNumbers);
-    auto calibrationValuesSum = Day01::Part01::SumCalibrationValues(calibrationValues);
+    auto puzzleData = Day01::LoadPuzzleData(puzzleInputFilename);
+    auto puzzleDataOnlyNumbers = Part01::RemoveCharactersFromPuzzleInput(puzzleData);
+    auto calibrationValues = Part01::ResolveCalibrationValues(puzzleDataOnlyNumbers);
+    auto calibrationValuesSum = Part01::SumCalibrationValues(calibrationValues);
 
     return std::to_string(calibrationValuesSum);
-}
-
-std::vector<std::string> Day01::Part01::LoadPuzzleData(const std::string& puzzleInputFilename) {
-    std::cout << "Loading puzzle data from: " << puzzleInputFilename << "." << std::endl;
-
-    std::string line;
-    std::vector<std::string> puzzleData;
-
-    std::ifstream puzzleDataFile(puzzleInputFilename);
-    if(puzzleDataFile.fail()) {
-        std::cout << "Failed to open file: " << puzzleInputFilename << std::endl;
-    }
-
-    if(puzzleDataFile.is_open()) {
-        while(getline(puzzleDataFile, line)) {
-            puzzleData.push_back(line);
-        }
-    }
-
-    return puzzleData;
 }
 
 std::vector<std::string> Day01::Part01::RemoveCharactersFromPuzzleInput(const std::vector<std::string>& puzzleData) {
