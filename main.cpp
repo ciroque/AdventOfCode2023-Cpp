@@ -3,6 +3,8 @@
 #include "Day01/Part1.h"
 #include "Day01/Part2.h"
 
+#include "Day02/Part1.h"
+
 void drawSeparator() {
     std::cout << "--------------------------------------------------------------------------------" << std::endl;
 }
@@ -24,6 +26,11 @@ int main() {
 
     drawSeparator();
 
+    std::cout << "Running Day 2, Part 1..." << std::endl;
+    auto day02Part01 = Day02::Part1();
+    auto wtf = day02Part01.Solve(std::string("../Day02/part-one-puzzle-input.dat"));
+
+    drawSeparator();
+
     return 0;
 }
-
