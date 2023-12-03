@@ -9,7 +9,7 @@
 #include "Part01.h"
 
 namespace Day01 {
-    class Part02 : public Day01::Day01 {
+    class Part02 : public Day::Day {
     private:
         static std::vector<std::pair<std::string, std::string>> SpelledNumbers;
 

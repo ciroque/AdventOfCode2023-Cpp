@@ -7,10 +7,10 @@
 
 #include <vector>
 
-#include "Day01.h"
+#include "Day.h"
 
 namespace Day01 {
-    class Part01 : public Day01::Day01 {
+    class Part01 : public Day::Day {
 
     public:
         std::string Solve(const std::string& puzzleInputFilename) override;
