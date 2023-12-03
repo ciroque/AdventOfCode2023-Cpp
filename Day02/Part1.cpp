@@ -23,12 +23,12 @@ namespace Day02 {
                 allGames.end(),
                 std::back_inserter(possibleGames),
                 [&](auto& game) {
-            return predicate(game, targets);
+            return targetsPredicate(game, targets);
         });
         return possibleGames;
     }
 
-    bool Part1::predicate(const Game& game, const std::map<std::string, unsigned long>& targets) {
+    bool Part1::targetsPredicate(const Game& game, const std::map<std::string, unsigned long>& targets) {
         for(auto& target : targets) {
             auto color = target.first;
             auto count = target.second;

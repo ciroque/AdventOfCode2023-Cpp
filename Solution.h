@@ -7,10 +7,11 @@
 
 #include <string>
 #include <map>
+#include <vector>
 
 class Solution {
 public:
-    virtual std::string Solve(const std::string& puzzleInputFilename) = 0;
+    static std::vector<std::string> LoadPuzzleData(const std::string &puzzleInputFilename);
 };
 
 
