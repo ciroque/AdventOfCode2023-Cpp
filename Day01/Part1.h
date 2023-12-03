@@ -13,7 +13,7 @@ namespace Day01 {
     class Part1 : public Day::Day {
 
     public:
-        std::string Solve(const std::string& puzzleInputFilename) override;
+        std::string Solve(const std::string& puzzleInputFilename);
 
         static const int CALIBRATION_VALUE_EXTRACT_INDEX = 0;
         static const int CALIBRATION_VALUE_INSERT_INDEX = 0;

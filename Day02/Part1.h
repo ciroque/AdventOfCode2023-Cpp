@@ -11,12 +11,11 @@
 namespace Day02 {
 class Part1 : public Day02::Day {
 public:
-    std::string Solve(const std::string& puzzleInputFilename, std::map<std::string, unsigned long> targets) override;
+    std::string Solve(const std::string& puzzleInputFilename, std::map<std::string, unsigned long> targets);
 
 private:
-    static bool predicate(const Game& game, const std::map<std::string, unsigned long>& targets);
+    static bool targetsPredicate(const Game& game, const std::map<std::string, unsigned long>& targets);
     static std::vector<Game> FindPossibleGames(const std::vector<Game>& allGames, const std::map<std::string, unsigned long>& targets);
-
     static unsigned long SumGameIds(const std::vector<Game>& possibleGames);
 };
 } // Day

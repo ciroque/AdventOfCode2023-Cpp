@@ -12,18 +12,13 @@
 
 namespace Day01 {
     class Day : public Solution {
-
+    private:
         static std::string ResolveSingleDigitCalibrationValue(const std::string& calibrationValue);
-
         static std::string ResolveMultiDigitCalibrationValue(const std::string& calibrationValue);
 
     protected:
-        static std::vector<std::string> LoadPuzzleData(const std::string& puzzleInputFilename);
-
         static std::vector<std::string> ResolveCalibrationValues(const std::vector<std::string>& puzzleDataOnlyNumbers);
-
         static std::vector<unsigned long> ResolveCalibrationNumericValues(const std::vector<std::string> &puzzleDataOnlyNumbers);
-
         static std::vector<std::string> RemoveCharactersFromPuzzleInput(const std::vector<std::string>& puzzleData);
 
     public:
