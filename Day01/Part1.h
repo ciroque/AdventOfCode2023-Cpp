@@ -2,15 +2,15 @@
 // Created by ciroque on 01/12/23.
 //
 
-#ifndef ADVENT_OF_CODE_2023_C___PART01_H
-#define ADVENT_OF_CODE_2023_C___PART01_H
+#ifndef ADVENT_OF_CODE_2023_C___PART1_H
+#define ADVENT_OF_CODE_2023_C___PART1_H
 
 #include <vector>
 
 #include "Day.h"
 
 namespace Day01 {
-    class Part01 : public Day::Day {
+    class Part1 : public Day::Day {
 
     public:
         std::string Solve(const std::string& puzzleInputFilename) override;
@@ -25,4 +25,4 @@ namespace Day01 {
 
 
 
-#endif //ADVENT_OF_CODE_2023_C___PART01_H
+#endif //ADVENT_OF_CODE_2023_C___PART1_H
