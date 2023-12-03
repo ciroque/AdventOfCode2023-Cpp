@@ -27,8 +27,15 @@ int main() {
     drawSeparator();
 
     std::cout << "Running Day 2, Part 1..." << std::endl;
+    auto partOneTargets = std::map<std::string, unsigned long> {
+        {"red", 12},
+        {"green", 13},
+        {"blue", 14}
+    };
+
     auto day02Part01 = Day02::Part1();
-    auto wtf = day02Part01.Solve(std::string("../Day02/part-one-puzzle-input.dat"));
+    auto day02Part01Solution = day02Part01.Solve(std::string("../Day02/puzzle-input.dat"), partOneTargets);
+    std::cout << "Answer: " << day02Part01Solution << std::endl;
 
     drawSeparator();
 

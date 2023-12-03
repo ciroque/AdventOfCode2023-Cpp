@@ -10,7 +10,10 @@
 #include "Game.h"
 
 namespace Day02 {
-    class Day : public Solution {
+    class Day {
+    public:
+        virtual std::string Solve(const std::string& puzzleInputFilename, const std::map<std::string, unsigned long> targets) = 0;
+
     protected:
         static std::vector<std::string> LoadPuzzleData(const std::string &puzzleInputFilename);
         static std::vector<Game> LoadGames(const std::vector<std::string> &puzzleData);
