@@ -22,7 +22,7 @@ std::vector<std::pair<std::string, std::string>> Day01::Part02::SpelledNumbers =
 };
 
 std::string Day01::Part02::Solve(const std::string &puzzleInputFilename) {
-    auto puzzleData = Day01::LoadPuzzleData(puzzleInputFilename);
+    auto puzzleData = Day::LoadPuzzleData(puzzleInputFilename);
     auto resolvedSpelledNumbers = Part02::ResolveSpelledNumbers(puzzleData);
     auto puzzleDataOnlyNumbers = RemoveCharactersFromPuzzleInput(resolvedSpelledNumbers);
     auto calibrationValues = ResolveCalibrationValues(puzzleDataOnlyNumbers);

@@ -8,11 +8,11 @@
 #include <numeric>
 
 #include "Part01.h"
-#include "Day01.h"
+#include "Day.h"
 
 
 std::string Day01::Part01::Solve(const std::string& puzzleInputFilename) {
-    auto puzzleData = Day01::LoadPuzzleData(puzzleInputFilename);
+    auto puzzleData = Day::LoadPuzzleData(puzzleInputFilename);
     auto puzzleDataOnlyNumbers = RemoveCharactersFromPuzzleInput(puzzleData);
     auto calibrationValues = ResolveCalibrationValues(puzzleDataOnlyNumbers);
     auto calibrationNumericValues = ResolveCalibrationNumericValues(puzzleDataOnlyNumbers);
