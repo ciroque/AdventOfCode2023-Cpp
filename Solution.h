@@ -6,6 +6,7 @@
 #define ADVENT_OF_CODE_2023_C___SOLUTION_H
 
 #include <string>
+#include <map>
 
 class Solution {
 public:

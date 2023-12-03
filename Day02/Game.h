@@ -12,12 +12,15 @@
 namespace Day02 {
     class Game {
     private:
-        unsigned long m_Id;
-        std::vector<std::map<std::string, std::string>> m_Reveals;
+        unsigned long m_Id{};
+        std::vector<std::map<std::string, int>> m_RevealColorCounts;
 
     public:
-        Game(unsigned long id, std::vector<std::map<std::string, std::string>> reveals);
+        Game(unsigned long id, std::vector<std::map<std::string, int>>& revealColorCounts);
         static Game Create(std::string const& input);
+
+        [[nodiscard]] inline unsigned long GetId() const { return this->m_Id; }
+        [[nodiscard]] inline std::vector<std::map<std::string, int>> GetRevealColorCounts() const { return this->m_RevealColorCounts; };
     };
 
 } // Day
