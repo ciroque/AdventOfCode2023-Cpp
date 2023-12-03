@@ -6,9 +6,9 @@
 #include <iomanip>
 #include <numeric>
 
-#include "Part02.h"
+#include "Part2.h"
 
-std::vector<std::pair<std::string, std::string>> Day01::Part02::SpelledNumbers = {
+std::vector<std::pair<std::string, std::string>> Day01::Part2::SpelledNumbers = {
         {"zero", "0"},
         {"one", "1"},
         {"two", "2"},
@@ -21,9 +21,9 @@ std::vector<std::pair<std::string, std::string>> Day01::Part02::SpelledNumbers =
         {"nine", "9"},
 };
 
-std::string Day01::Part02::Solve(const std::string &puzzleInputFilename) {
+std::string Day01::Part2::Solve(const std::string &puzzleInputFilename) {
     auto puzzleData = Day::LoadPuzzleData(puzzleInputFilename);
-    auto resolvedSpelledNumbers = Part02::ResolveSpelledNumbers(puzzleData);
+    auto resolvedSpelledNumbers = Part2::ResolveSpelledNumbers(puzzleData);
     auto puzzleDataOnlyNumbers = RemoveCharactersFromPuzzleInput(resolvedSpelledNumbers);
     auto calibrationValues = ResolveCalibrationValues(puzzleDataOnlyNumbers);
     auto calibrationNumericValues = ResolveCalibrationNumericValues(puzzleDataOnlyNumbers);
@@ -35,9 +35,9 @@ std::string Day01::Part02::Solve(const std::string &puzzleInputFilename) {
 }
 
 void
-Day01::Part02::printChangesTable(std::vector<std::string> &puzzleData, std::vector<std::string> &resolvedSpelledNumbers,
-                                 std::vector<std::string> &puzzleDataOnlyNumbers,
-                                 std::vector<std::string> &calibrationValues) const {
+Day01::Part2::printChangesTable(std::vector<std::string> &puzzleData, std::vector<std::string> &resolvedSpelledNumbers,
+                                std::vector<std::string> &puzzleDataOnlyNumbers,
+                                std::vector<std::string> &calibrationValues) const {
     int maxOriginalLineLength = std::max_element(puzzleData.begin(), puzzleData.end(), comparator)->length();
     int maxResolvedSpelledNumbersLength = std::max_element(resolvedSpelledNumbers.begin(), resolvedSpelledNumbers.end(), comparator)->length();
     int maxPuzzleDataOnlyNumbersLength = std::max_element(puzzleDataOnlyNumbers.begin(), puzzleDataOnlyNumbers.end(), comparator)->length();
@@ -56,7 +56,7 @@ Day01::Part02::printChangesTable(std::vector<std::string> &puzzleData, std::vect
     }
 }
 
-std::vector<std::string> Day01::Part02::ResolveSpelledNumbers(const std::vector<std::string>& puzzleData) {
+std::vector<std::string> Day01::Part2::ResolveSpelledNumbers(const std::vector<std::string>& puzzleData) {
     std::vector<std::string> numericValues;
 
     for(auto line : puzzleData) {
@@ -69,7 +69,7 @@ std::vector<std::string> Day01::Part02::ResolveSpelledNumbers(const std::vector<
 
 // no sort: 54495
 // sort: 54980
-std::string Day01::Part02::ResolveSpelledNumber(std::string &line) {
+std::string Day01::Part2::ResolveSpelledNumber(std::string &line) {
     std::vector<std::pair<unsigned long, std::pair<std::string, std::string>>> indices;
     for(auto& spelled : SpelledNumbers) {
         std::string from = spelled.first;
@@ -101,8 +101,8 @@ std::string Day01::Part02::ResolveSpelledNumber(std::string &line) {
     return line;
 }
 
-void Day01::Part02::CheckForOverlappingIndices(std::string &line,
-                                               std::vector<std::pair<unsigned long, std::pair<std::string, std::string>>> indices) {
+void Day01::Part2::CheckForOverlappingIndices(std::string &line,
+                                              std::vector<std::pair<unsigned long, std::pair<std::string, std::string>>> indices) {
     for(size_t index = 1; index < indices.size(); index++) {
         auto previousIndex = indices[index - 1];
         auto currentIndex = indices[index];

@@ -2,8 +2,8 @@
 // Created by ciroque on 01/12/23.
 //
 
-#ifndef ADVENT_OF_CODE_2023_C___DAY01_H
-#define ADVENT_OF_CODE_2023_C___DAY01_H
+#ifndef ADVENT_OF_CODE_2023_C___DAY_H
+#define ADVENT_OF_CODE_2023_C___DAY_H
 
 #include <vector>
 #include <string>
@@ -11,7 +11,7 @@
 #include "../Solution.h"
 
 namespace Day01 {
-    class Day01 : public Solution {
+    class Day : public Solution {
 
         static std::string ResolveSingleDigitCalibrationValue(const std::string& calibrationValue);
 
@@ -31,4 +31,4 @@ namespace Day01 {
     };
 }
 
-#endif //ADVENT_OF_CODE_2023_C___DAY01_H
+#endif //ADVENT_OF_CODE_2023_C___DAY_H

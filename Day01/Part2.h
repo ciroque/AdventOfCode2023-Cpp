@@ -2,14 +2,14 @@
 // Created by ciroque on 01/12/23.
 //
 
-#ifndef ADVENT_OF_CODE_2023_C___PART02_H
-#define ADVENT_OF_CODE_2023_C___PART02_H
+#ifndef ADVENT_OF_CODE_2023_C___PART2_H
+#define ADVENT_OF_CODE_2023_C___PART2_H
 
 #include <map>
-#include "Part01.h"
+#include "Part1.h"
 
 namespace Day01 {
-    class Part02 : public Day::Day {
+    class Part2 : public Day::Day {
     private:
         static std::vector<std::pair<std::string, std::string>> SpelledNumbers;
 
@@ -31,4 +31,4 @@ namespace Day01 {
     };
 }
 
-#endif //ADVENT_OF_CODE_2023_C___PART02_H
+#endif //ADVENT_OF_CODE_2023_C___PART2_H

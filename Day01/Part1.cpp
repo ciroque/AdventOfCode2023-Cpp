@@ -7,11 +7,11 @@
 #include <utility>
 #include <numeric>
 
-#include "Part01.h"
+#include "Part1.h"
 #include "Day.h"
 
 
-std::string Day01::Part01::Solve(const std::string& puzzleInputFilename) {
+std::string Day01::Part1::Solve(const std::string& puzzleInputFilename) {
     auto puzzleData = Day::LoadPuzzleData(puzzleInputFilename);
     auto puzzleDataOnlyNumbers = RemoveCharactersFromPuzzleInput(puzzleData);
     auto calibrationValues = ResolveCalibrationValues(puzzleDataOnlyNumbers);
@@ -21,7 +21,7 @@ std::string Day01::Part01::Solve(const std::string& puzzleInputFilename) {
     return std::to_string(calibrationValuesSum);
 }
 
-std::string Day01::Part01::RemoveCharactersFromLine(const std::string& line) {
+std::string Day01::Part1::RemoveCharactersFromLine(const std::string& line) {
     std::string onlyNumbers;
     for(auto& character : line) {
         if(isdigit(character)) {
