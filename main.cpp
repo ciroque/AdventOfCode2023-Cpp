@@ -4,6 +4,7 @@
 #include "Day01/Part2.h"
 
 #include "Day02/Part1.h"
+#include "Day02/Part2.h"
 
 void drawSeparator() {
     std::cout << "--------------------------------------------------------------------------------" << std::endl;
@@ -33,9 +34,16 @@ int main() {
         {"blue", 14}
     };
 
-    auto day02Part01 = Day02::Part1();
-    auto day02Part01Solution = day02Part01.Solve(std::string("../Day02/puzzle-input.dat"), partOneTargets);
+    auto day02Part1 = Day02::Part1();
+    auto day02Part01Solution = day02Part1.Solve(std::string("../Day02/puzzle-input.dat"), partOneTargets);
     std::cout << "Answer: " << day02Part01Solution << std::endl;
+
+    drawSeparator();
+
+    std::cout << "Running Day 2, Part 2..." << std::endl;
+    auto day02Part2 = Day02::Part2();
+    auto day02Part2Solution = day02Part2.Solve(std::string("../Day02/puzzle-input.dat"));
+    std::cout << "Answer: " << day02Part2Solution << std::endl;
 
     drawSeparator();
 
