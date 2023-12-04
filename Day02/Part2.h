@@ -26,4 +26,4 @@ namespace Day02 {
 
 } // Day02
 
-#endif //ADVENT_OF_CODE_2023_C___PART2_H
+#endif //ADVENT_OF_CODE_2023_C__DAY02_PART2_H
