@@ -13,14 +13,14 @@ namespace Day02 {
     class Game {
     private:
         unsigned long m_Id{};
-        std::vector<std::map<std::string, int>> m_RevealColorCounts;
+        std::vector<std::map<std::string, unsigned long>> m_RevealColorCounts;
 
     public:
-        Game(unsigned long id, std::vector<std::map<std::string, int>>& revealColorCounts);
+        Game(unsigned long id, std::vector<std::map<std::string, unsigned long>>& revealColorCounts);
         static Game Create(std::string const& input);
 
         [[nodiscard]] inline unsigned long GetId() const { return this->m_Id; }
-        [[nodiscard]] inline std::vector<std::map<std::string, int>> GetRevealColorCounts() const { return this->m_RevealColorCounts; };
+        [[nodiscard]] inline std::vector<std::map<std::string, unsigned long>> GetRevealColorCounts() const { return this->m_RevealColorCounts; };
     };
 
 } // Day

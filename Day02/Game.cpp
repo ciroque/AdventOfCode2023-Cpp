@@ -9,13 +9,13 @@
 #include "Game.h"
 
 namespace Day02 {
-    Game::Game(unsigned long id, std::vector<std::map<std::string, int>> &revealColorCounts) {
+    Game::Game(unsigned long id, std::vector<std::map<std::string, unsigned long>> &revealColorCounts) {
         this->m_Id = id;
         this->m_RevealColorCounts = std::move(revealColorCounts);
     }
 
     Game Game::Create(const std::string &input) {
-        std::vector<std::map<std::string, int>> revealColorCounts;
+        std::vector<std::map<std::string, unsigned long>> revealColorCounts;
 
         std::stringstream ss(input);
         std::string segment;
@@ -36,7 +36,7 @@ namespace Day02 {
                 header = true;
 
                 while(std::getline(segmentStream, reveals, ';')) {
-                    std::map<std::string, int> colorCounts;
+                    std::map<std::string, unsigned long> colorCounts;
                     std::stringstream revealsStream(reveals);
                     std::string pair;
 

@@ -20,4 +20,6 @@ add_executable(advent_of_code_2023_c__ main.cpp
         "Day02/Part1.cpp"
         "Day02/Part1.h"
         Day02/Day.cpp
+        Day02/Part2.cpp
+        Day02/Part2.h
 )
