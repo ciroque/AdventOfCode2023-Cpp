@@ -22,4 +22,12 @@ add_executable(advent_of_code_2023_c__ main.cpp
         Day02/Day.cpp
         Day02/Part2.cpp
         Day02/Part2.h
+        Day03/Day.cpp
+        Day03/Day.h
+        Day03/Part1.cpp
+        Day03/Part1.h
+        Day03/Location.cpp
+        Day03/Location.h
+        Day03/NumberLocation.cpp
+        Day03/NumberLocation.h
 )
