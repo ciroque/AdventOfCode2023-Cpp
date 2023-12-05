@@ -13,19 +13,18 @@
 #include "../Solution.h"
 #include "Location.h"
 #include "NumberLocation.h"
+#include "Day.h"
 
 namespace Day03 {
 
-    class Part1 {
+    class Part1 : public Day {
     public:
         std::string Solve(const std::string& puzzleInputFilename);
-
-        static std::vector<NumberLocation> FindNumberIndices(const std::vector<std::string>& puzzleData);
 
         static std::vector<NumberLocation>
         FindAdjacentNumberIndices(std::vector<std::string> symbolIndices, const std::vector<NumberLocation>& numberIndices);
 
-        static bool issymbol(char character);
+        static bool isSymbol(char character);
 
         static unsigned long SumAdjacentNumbers(const std::vector<NumberLocation>& adjacentNumberIndices);
 
