@@ -15,43 +15,6 @@ namespace Day03 {
         return std::to_string(answer);
     }
 
-    std::vector<NumberLocation> Part1::FindNumberIndices(const std::vector<std::string>& puzzleData) {
-        std::vector<NumberLocation> indices;
-        int lineNumber = 0;
-        int length = 0;
-        bool inNumber = false;
-
-        for(auto& line : puzzleData) {
-            int currentColumnIndex = 0;
-            int startColumnIndex = 0;
-            for(auto& character : line) {
-                currentColumnIndex++;
-                if(isdigit(character)) {
-                    if(!inNumber) {
-                        startColumnIndex = currentColumnIndex - 1;
-                        inNumber = true;
-                    }
-                    length++;
-                } else {
-                    if(inNumber) {
-                        auto number = line.substr(startColumnIndex, length);
-                        indices.emplace_back(lineNumber, startColumnIndex, number, length);
-                        inNumber = false;
-                        length = 0;
-                    }
-                }
-            }
-            if(inNumber) {
-                auto number = line.substr(startColumnIndex, length);
-                indices.emplace_back(lineNumber, startColumnIndex, number, length);
-                length = 0;
-            }
-            lineNumber++;
-            inNumber = false;
-        }
-
-        return indices;
-    }
 
     std::vector<NumberLocation>
     Part1::FindAdjacentNumberIndices(std::vector<std::string> symbolIndices, const std::vector<NumberLocation>& numberIndices) {
@@ -74,7 +37,7 @@ namespace Day03 {
                         auto adjacentLine = symbolIndices[adjacentLineNumber];
                         if(adjacentColumnIndex >= 0 && adjacentColumnIndex < adjacentLine.size()) {
                             auto adjacentCharacter = adjacentLine[adjacentColumnIndex];
-                            if(issymbol(adjacentCharacter)) {
+                            if(isSymbol(adjacentCharacter)) {
                                 if(!currentAdded) {
                                     adjacentNumberIndices.push_back(numberIndex);
                                     currentAdded = true;
@@ -90,7 +53,7 @@ namespace Day03 {
         return adjacentNumberIndices;
     }
 
-    bool Part1::issymbol(char character) {
+    bool Part1::isSymbol(char character) {
         return
             character == '#' // 38 occurrences
             || character == '$' // 40 occurrences
