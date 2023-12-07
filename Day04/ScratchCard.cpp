@@ -81,5 +81,4 @@ namespace Day04 {
 
         return winningNumbers;
     }
-
 } // Day04

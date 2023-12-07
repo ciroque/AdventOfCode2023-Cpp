@@ -4,6 +4,7 @@
 
 #include "Part1.h"
 #include "ScratchCard.h"
+#include "Day.h"
 
 namespace Day04 {
     std::string Part1::Solve(const std::string &puzzleInputFilename) {
@@ -13,17 +14,6 @@ namespace Day04 {
         auto answer = CalculateAnswer(gameScores);
 
         return std::to_string(answer);
-    }
-
-    std::vector<ScratchCard> Part1::BuildScratchCards(const std::vector<std::string>& puzzleData) {
-        std::vector<ScratchCard> scratchCards;
-
-        for(auto& line : puzzleData) {
-            auto scratchCard = ScratchCard::Create(line);
-            scratchCards.push_back(scratchCard);
-        }
-
-        return scratchCards;
     }
 
     std::vector<unsigned long> Part1::CalculateGameScores(std::vector<ScratchCard>& scratchCards) {

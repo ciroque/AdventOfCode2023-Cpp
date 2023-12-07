@@ -15,7 +15,6 @@ namespace Day04 {
 
     class Part1 : public Day {
     private:
-        static std::vector<ScratchCard> BuildScratchCards(const std::vector<std::string>& puzzleData);
 
         static std::vector<unsigned long> CalculateGameScores(std::vector<ScratchCard>& scratchCards);
 

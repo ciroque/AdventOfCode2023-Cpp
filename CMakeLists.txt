@@ -38,4 +38,6 @@ add_executable(advent_of_code_2023_c__ main.cpp
         Day04/Part1.h
         Day04/ScratchCard.cpp
         Day04/ScratchCard.h
+        Day04/Part2.cpp
+        Day04/Part2.h
 )
