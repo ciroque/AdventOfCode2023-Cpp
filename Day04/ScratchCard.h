@@ -19,8 +19,17 @@ namespace Day04 {
         std::vector<unsigned long> m_WinningNumbers;
 
     public:
+        ScratchCard(unsigned long index, ScratchCard& other) {
+            this->m_Index = index;
+            this->m_Numbers = other.m_Numbers;
+            this->m_WinningNumbers = other.m_WinningNumbers;
+        };
         static ScratchCard Create(const std::string& input);
         std::vector<unsigned long> FindWinningNumbers();
+
+         [[nodiscard]] inline unsigned long GetIndex() const { return m_Index; };
+
+        void SetIndex(unsigned long index) { m_Index = index; };
     };
 
 } // Day04
