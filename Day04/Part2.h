@@ -5,6 +5,9 @@
 #ifndef ADVENT_OF_CODE_2023_C__DAY04_PART2_H
 #define ADVENT_OF_CODE_2023_C__DAY04_PART2_H
 
+#include <chrono>
+#include <iostream>
+
 #include "Day.h"
 
 namespace Day04 {

@@ -2,11 +2,11 @@
 // Created by ciroque on 05/12/23.
 //
 
-#include <iostream>
 #include "Part2.h"
 
 namespace Day04 {
     std::string Part2::Solve(const std::string &puzzleInputFilename) {
+        auto start = std::chrono::high_resolution_clock::now();
         std::string answer = "Not Implemented";
 
         auto puzzleData = LoadPuzzleData(puzzleInputFilename);
@@ -14,6 +14,10 @@ namespace Day04 {
         auto bonusScratchCards = CalculateBonusScratchCards(scratchCards);
 
         answer = std::to_string(bonusScratchCards.size());
+
+        auto end = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count();
+        std::cout << "Part2Optimal::Solve completed in " << duration << " milliseconds" << std::endl;
 
         return answer;
     }
