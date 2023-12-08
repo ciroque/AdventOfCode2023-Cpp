@@ -9,6 +9,7 @@
 #include "Day03/Part2.h"
 #include "Day04/Part1.h"
 #include "Day04/Part2.h"
+#include "Day04/Part2Optimal.h"
 
 void drawSeparator() {
     std::cout << "--------------------------------------------------------------------------------" << std::endl;
@@ -72,10 +73,19 @@ int main() {
 
     drawSeparator();
 
-    std::cout << "Running Day 4, Part 2..." << std::endl;
-    auto day04Part2 = Day04::Part2();
-    auto day04Part2Solution = day04Part2.Solve(std::string("../Day04/puzzle-input.dat"));
-    std::cout << "Answer: " << day04Part2Solution << std::endl;
+    // 116912 milliseconds
+//    std::cout << "Running Day 4, Part 2..." << std::endl;
+//    auto day04Part2 = Day04::Part2();
+//    auto day04Part2Solution = day04Part2.Solve(std::string("../Day04/puzzle-input.dat"));
+//    std::cout << "Answer: " << day04Part2Solution << std::endl;
+//
+//    drawSeparator();
+
+    // 6145 milliseconds
+    std::cout << "Running Day 4, Part 2 Optimal..." << std::endl;
+    auto day04Part2Optimal = Day04::Part2Optimal();
+    auto day04Part2OptimalSolution = day04Part2Optimal.Solve(std::string("../Day04/puzzle-input.dat"));
+    std::cout << "Answer: " << day04Part2OptimalSolution << std::endl;
 
     drawSeparator();
 
